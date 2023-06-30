@@ -16,6 +16,14 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 
 
-url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
-names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
-dataset = read_csv(url, names=names)
+url = "https://raw.githubusercontent.com/rofans/wgu.msc.cs.CONL708/main/jobs-data-training.csv"
+names = ['job_title','location','salary_currency','career_level','experience_level','education_level','employment_type','job_function','job_benefits','company_process_time','company_size','company_industry','job_description','salary']
+dataset = read_csv(url, names=names, sep = '|')
+
+print(dataset.shape)
+
+print(dataset.head(20))
+
+print(dataset.describe())
+
+print(dataset.groupby('job_title').size())
